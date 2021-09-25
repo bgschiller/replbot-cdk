@@ -16,15 +16,14 @@ The `/src/config.sh` file is used as [user-data](https://docs.aws.amazon.com/AWS
 Ensure aws-cdk is installed and [bootstrapped](https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html).
 
 ```bash
-$ npm install -g aws-cdk
-$ cdk bootstrap
+$ npm run build
+$ npm run cdk bootstrap
 ```
 
-Then build and deploy.
+Then deploy.
 
 ```bash
-$ npm run build
-$ cdk deploy
+$ npm run cdk deploy
 ```
 
 ## Output

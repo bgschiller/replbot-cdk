@@ -5,8 +5,12 @@ import * as path from 'path';
 import { KeyPair } from 'cdk-ec2-key-pair';
 import { Asset } from '@aws-cdk/aws-s3-assets';
 
+interface ReplbotStackProps extends cdk.StackProps {
+  botToken: string;
+}
+
 export class ReplbotCdkStack extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: cdk.Construct, id: string, props: ReplbotStackProps) {
     super(scope, id, props);
 
     // Create a Key Pair to be used with this EC2 Instance
@@ -33,6 +37,7 @@ export class ReplbotCdkStack extends cdk.Stack {
       allowAllOutbound: true
     });
     securityGroup.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(22), 'Allow SSH Access')
+    securityGroup.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(2222), 'Allow replbot SSH Access')
 
     const role = new iam.Role(this, 'ec2Role', {
       assumedBy: new iam.ServicePrincipal('ec2.amazonaws.com')
@@ -43,17 +48,17 @@ export class ReplbotCdkStack extends cdk.Stack {
     // Use Latest Amazon Linux Image - CPU Type ARM64
     const ami = new ec2.AmazonLinuxImage({
       generation: ec2.AmazonLinuxGeneration.AMAZON_LINUX_2,
-      cpuType: ec2.AmazonLinuxCpuType.ARM_64
+      cpuType: ec2.AmazonLinuxCpuType.X86_64
     });
 
     // Create the instance using the Security Group, AMI, and KeyPair defined in the VPC created
     const ec2Instance = new ec2.Instance(this, 'Instance', {
       vpc,
-      instanceType: ec2.InstanceType.of(ec2.InstanceClass.T4G, ec2.InstanceSize.MICRO),
+      instanceType: ec2.InstanceType.of(ec2.InstanceClass.T3, ec2.InstanceSize.MICRO),
       machineImage: ami,
       securityGroup: securityGroup,
       keyName: key.keyPairName,
-      role: role
+      role: role,
     });
 
     // Create an asset that will be used as part of User Data to run on first load
@@ -67,6 +72,10 @@ export class ReplbotCdkStack extends cdk.Stack {
       filePath: localPath,
       arguments: '--verbose -y'
     });
+    ec2Instance.userData.addCommands(`echo bot-token: ${props.botToken} >> /etc/replbot/config.yml
+echo share-host: \$(curl -s ifconfig.me):22 >> /etc/replbot/config.yml
+systemctl enable replbot --now
+`);
     asset.grantRead(ec2Instance.role);
 
     // Create outputs for connecting

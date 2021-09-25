@@ -1,0 +1,744 @@
+{
+  "version": "14.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "devetry-replbot": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "devetry-replbot.template.json",
+        "validateOnSynth": false
+      },
+      "metadata": {
+        "/devetry-replbot": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.afe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2.zip",
+              "id": "afe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2",
+              "packaging": "file",
+              "sourceHash": "afe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2",
+              "s3BucketParameter": "AssetParametersafe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2S3BucketA216A7EC",
+              "s3KeyParameter": "AssetParametersafe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2S3VersionKeyC59C30A0",
+              "artifactHashParameter": "AssetParametersafe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2ArtifactHash3CBE2F36"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/construct-compat.js:405:62)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:175:29)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:83:25)",
+              "ReplbotCdkStack.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack.js:425:33)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:87:31)",
+              "new Asset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:44)",
+              "AssetCode.bind (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-lambda/lib/code.js:258:26)",
+              "new Function (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-lambda/lib/function.js:98:33)",
+              "KeyPair.ensureLambda (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:179:20)",
+              "new KeyPair (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:80:28)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:14:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          },
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05a.sh",
+              "id": "27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05a",
+              "packaging": "file",
+              "sourceHash": "27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05a",
+              "s3BucketParameter": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3BucketC45E8303",
+              "s3KeyParameter": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6",
+              "artifactHashParameter": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aArtifactHash0A09B12E"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/construct-compat.js:405:62)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:175:29)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:83:25)",
+              "ReplbotCdkStack.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack.js:425:33)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:87:31)",
+              "new Asset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:44)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:55:23)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/KeyPair/EC2-Key-Pair-cdk-keypair/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "KeyPairEC2KeyPaircdkkeypairA709CCF7",
+            "trace": [
+              "new CustomResource (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/custom-resource.js:30:25)",
+              "new KeyPair (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:85:21)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:14:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/EC2-Key-Pair-Manager-Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EC2KeyPairManagerPolicyEBBC1576",
+            "trace": [
+              "new ManagedPolicy (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-iam/lib/managed-policy.js:37:26)",
+              "KeyPair.ensureLambda (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:131:24)",
+              "new KeyPair (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:80:28)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:14:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/EC2-Key-Pair-Manager-Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EC2KeyPairManagerRoleB243C519",
+            "trace": [
+              "new Role (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-iam/lib/role.js:72:22)",
+              "KeyPair.ensureLambda (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:170:22)",
+              "new KeyPair (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:80:28)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:14:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/EC2-Key-Name-Manager-Lambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EC2KeyNameManagerLambdaBE629145",
+            "trace": [
+              "new Function (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-lambda/lib/function.js:136:26)",
+              "KeyPair.ensureLambda (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:179:20)",
+              "new KeyPair (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:80:28)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:14:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/AssetParameters/afe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersafe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2S3BucketA216A7EC",
+            "trace": [
+              "new FileAssetParameters (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:12:36)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:162:22)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:83:25)",
+              "ReplbotCdkStack.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack.js:425:33)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:87:31)",
+              "new Asset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:44)",
+              "AssetCode.bind (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-lambda/lib/code.js:258:26)",
+              "new Function (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-lambda/lib/function.js:98:33)",
+              "KeyPair.ensureLambda (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:179:20)",
+              "new KeyPair (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:80:28)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:14:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/AssetParameters/afe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersafe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2S3VersionKeyC59C30A0",
+            "trace": [
+              "new FileAssetParameters (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:16:35)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:162:22)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:83:25)",
+              "ReplbotCdkStack.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack.js:425:33)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:87:31)",
+              "new Asset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:44)",
+              "AssetCode.bind (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-lambda/lib/code.js:258:26)",
+              "new Function (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-lambda/lib/function.js:98:33)",
+              "KeyPair.ensureLambda (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:179:20)",
+              "new KeyPair (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:80:28)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:14:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/AssetParameters/afe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersafe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2ArtifactHash3CBE2F36",
+            "trace": [
+              "new FileAssetParameters (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:20:38)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:162:22)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:83:25)",
+              "ReplbotCdkStack.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack.js:425:33)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:87:31)",
+              "new Asset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:44)",
+              "AssetCode.bind (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-lambda/lib/code.js:258:26)",
+              "new Function (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-lambda/lib/function.js:98:33)",
+              "KeyPair.ensureLambda (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:179:20)",
+              "new KeyPair (/home/brian/code/replbot-cdk/node_modules/cdk-ec2-key-pair/lib/index.js:80:28)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:14:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/AssetParameters/27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05a/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3BucketC45E8303",
+            "trace": [
+              "new FileAssetParameters (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:12:36)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:162:22)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:83:25)",
+              "ReplbotCdkStack.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack.js:425:33)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:87:31)",
+              "new Asset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:44)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:55:23)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/AssetParameters/27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05a/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6",
+            "trace": [
+              "new FileAssetParameters (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:16:35)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:162:22)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:83:25)",
+              "ReplbotCdkStack.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack.js:425:33)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:87:31)",
+              "new Asset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:44)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:55:23)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/AssetParameters/27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05a/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aArtifactHash0A09B12E",
+            "trace": [
+              "new FileAssetParameters (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:20:38)",
+              "LegacyStackSynthesizer.doAddFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:162:22)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:83:25)",
+              "ReplbotCdkStack.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack.js:425:33)",
+              "LegacyStackSynthesizer.addFileAsset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:87:31)",
+              "new Asset (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:40:44)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:55:23)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/VPC/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCB9E5F0B4",
+            "trace": [
+              "new Vpc (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:384:25)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:20:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/VPC/asteriskSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCasteriskSubnet1SubnetEE53BCBC",
+            "trace": [
+              "new Subnet (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:708:24)",
+              "new PublicSubnet (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:873:9)",
+              "/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:606:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:590:32)",
+              "Vpc.createSubnets (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:581:18)",
+              "new Vpc (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:405:14)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:20:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/VPC/asteriskSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCasteriskSubnet1RouteTable23B73BA2",
+            "trace": [
+              "new Subnet (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:724:23)",
+              "new PublicSubnet (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:873:9)",
+              "/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:606:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:590:32)",
+              "Vpc.createSubnets (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:581:18)",
+              "new Vpc (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:405:14)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:20:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/VPC/asteriskSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCasteriskSubnet1RouteTableAssociationFD2182F2",
+            "trace": [
+              "new Subnet (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:729:9)",
+              "new PublicSubnet (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:873:9)",
+              "/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:606:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:590:32)",
+              "Vpc.createSubnets (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:581:18)",
+              "new Vpc (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:405:14)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:20:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/VPC/asteriskSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCasteriskSubnet1DefaultRoute377544B7",
+            "trace": [
+              "PublicSubnet.addDefaultInternetRoute (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:764:23)",
+              "/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:417:30",
+              "Array.forEach (<anonymous>)",
+              "new Vpc (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:32)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:20:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/VPC/asteriskSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCasteriskSubnet2Subnet7959E1B2",
+            "trace": [
+              "new Subnet (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:708:24)",
+              "new PublicSubnet (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:873:9)",
+              "/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:606:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:590:32)",
+              "Vpc.createSubnets (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:581:18)",
+              "new Vpc (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:405:14)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:20:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/VPC/asteriskSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCasteriskSubnet2RouteTable01067F80",
+            "trace": [
+              "new Subnet (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:724:23)",
+              "new PublicSubnet (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:873:9)",
+              "/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:606:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:590:32)",
+              "Vpc.createSubnets (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:581:18)",
+              "new Vpc (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:405:14)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:20:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/VPC/asteriskSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCasteriskSubnet2RouteTableAssociation781F3620",
+            "trace": [
+              "new Subnet (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:729:9)",
+              "new PublicSubnet (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:873:9)",
+              "/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:606:42",
+              "Array.forEach (<anonymous>)",
+              "Vpc.createSubnetResources (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:590:32)",
+              "Vpc.createSubnets (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:581:18)",
+              "new Vpc (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:405:14)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:20:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/VPC/asteriskSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCasteriskSubnet2DefaultRoute9650F4DB",
+            "trace": [
+              "PublicSubnet.addDefaultInternetRoute (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:764:23)",
+              "/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:417:30",
+              "Array.forEach (<anonymous>)",
+              "new Vpc (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:416:32)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:20:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/VPC/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCIGWB7E252D3",
+            "trace": [
+              "new Vpc (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:409:25)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:20:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/VPC/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCVPCGW99B986DC",
+            "trace": [
+              "new Vpc (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/vpc.js:412:25)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:20:21)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SecurityGroupDD263621",
+            "trace": [
+              "new SecurityGroup (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/security-group.js:215:30)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:29:31)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/ec2Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ec2Role38AB65C0",
+            "trace": [
+              "new Role (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-iam/lib/role.js:72:22)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:36:22)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/ec2Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ec2RoleDefaultPolicyC400AE24",
+            "trace": [
+              "new Policy (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-iam/lib/policy.js:56:26)",
+              "Role.addToPrincipalPolicy (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-iam/lib/role.js:209:34)",
+              "Function.addToPrincipal (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-iam/lib/grant.js:90:65)",
+              "Function.addToPrincipalOrResource (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-iam/lib/grant.js:45:30)",
+              "Import.grant (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-s3/lib/bucket.js:445:31)",
+              "Import.grantRead (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-s3/lib/bucket.js:264:21)",
+              "Asset.grantRead (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:93:21)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:68:15)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/Instance/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceInstanceProfileAB5AEF02",
+            "trace": [
+              "new Instance (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/instance.js:50:28)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:46:29)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/Instance/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "InstanceC1063A87",
+            "trace": [
+              "new Instance (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/instance.js:85:25)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:46:29)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn2-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter",
+            "trace": [
+              "Function.fromStringParameterAttributes (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ssm/lib/parameter.js:134:15)",
+              "Function.valueForTypedStringParameter (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ssm/lib/parameter.js:208:21)",
+              "lookupImage (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/machine-image.js:500:31)",
+              "AmazonLinuxImage.getImage (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/machine-image.js:270:25)",
+              "new Instance (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/aws-ec2/lib/instance.js:54:48)",
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:46:29)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/IP Address": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "IPAddress",
+            "trace": [
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:70:9)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/Key Name": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "KeyName",
+            "trace": [
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:71:9)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/Download Key Command": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DownloadKeyCommand",
+            "trace": [
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:72:9)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/ssh command": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "sshcommand",
+            "trace": [
+              "new ReplbotCdkStack (/home/brian/code/replbot-cdk/lib/replbot-cdk-stack.js:73:9)",
+              "Object.<anonymous> (/home/brian/code/replbot-cdk/bin/replbot-cdk.js:6:1)",
+              "Module._compile (internal/modules/cjs/loader.js:999:30)",
+              "Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)",
+              "Module.load (internal/modules/cjs/loader.js:863:32)",
+              "Function.Module._load (internal/modules/cjs/loader.js:708:14)",
+              "Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:60:12)",
+              "internal/main/run_main_module.js:17:47"
+            ]
+          }
+        ],
+        "/devetry-replbot/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
+              "/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
+              "visit (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "injectMetadataResources (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
+              "Object.synthesize (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "App.synth (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stage.js:100:41)",
+              "process.<anonymous> (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/app.js:51:51)",
+              "Object.onceWrapper (events.js:421:26)",
+              "process.emit (events.js:314:20)"
+            ]
+          }
+        ],
+        "/devetry-replbot/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:30:35)",
+              "/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
+              "visit (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "injectMetadataResources (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
+              "Object.synthesize (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "App.synth (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/stage.js:100:41)",
+              "process.<anonymous> (/home/brian/code/replbot-cdk/node_modules/@aws-cdk/core/lib/app.js:51:51)",
+              "Object.onceWrapper (events.js:421:26)",
+              "process.emit (events.js:314:20)"
+            ]
+          }
+        ]
+      },
+      "displayName": "devetry-replbot"
+    }
+  }
+}

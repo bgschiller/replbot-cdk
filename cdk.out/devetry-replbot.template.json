@@ -1,0 +1,1080 @@
+{
+  "Resources": {
+    "KeyPairEC2KeyPaircdkkeypairA709CCF7": {
+      "Type": "Custom::EC2-Key-Pair",
+      "Properties": {
+        "ServiceToken": {
+          "Fn::GetAtt": [
+            "EC2KeyNameManagerLambdaBE629145",
+            "Arn"
+          ]
+        },
+        "Name": "cdk-keypair",
+        "Description": "Key Pair created for Replbot ec2",
+        "KmsPrivate": "alias/aws/secretsmanager",
+        "KmsPublic": "alias/aws/secretsmanager",
+        "StorePublicKey": false,
+        "ExposePublicKey": false,
+        "RemoveKeySecretsAfterDays": 0,
+        "SecretPrefix": "ec2-ssh-key/",
+        "StackName": "devetry-replbot",
+        "Tags": {
+          "CreatedByCfnCustomResource": "CFN::Resource::Custom::EC2-Key-Pair"
+        }
+      },
+      "UpdateReplacePolicy": "Delete",
+      "DeletionPolicy": "Delete",
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/KeyPair/EC2-Key-Pair-cdk-keypair/Default"
+      }
+    },
+    "EC2KeyPairManagerPolicyEBBC1576": {
+      "Type": "AWS::IAM::ManagedPolicy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "ec2:DescribeKeyPairs",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": [
+                "ec2:CreateKeyPair",
+                "ec2:CreateTags"
+              ],
+              "Condition": {
+                "StringLike": {
+                  "aws:RequestTag/CreatedByCfnCustomResource": "CFN::Resource::Custom::EC2-Key-Pair"
+                }
+              },
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":ec2:*:*:key-pair/*"
+                  ]
+                ]
+              }
+            },
+            {
+              "Action": [
+                "ec2:CreateTags",
+                "ec2:DeleteKeyPair",
+                "ec2:DeleteTags"
+              ],
+              "Condition": {
+                "StringLike": {
+                  "ec2:ResourceTag/CreatedByCfnCustomResource": "CFN::Resource::Custom::EC2-Key-Pair"
+                }
+              },
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":ec2:*:*:key-pair/*"
+                  ]
+                ]
+              }
+            },
+            {
+              "Action": "secretsmanager:ListSecrets",
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": [
+                "secretsmanager:CreateSecret",
+                "secretsmanager:TagResource"
+              ],
+              "Condition": {
+                "StringLike": {
+                  "aws:RequestTag/CreatedByCfnCustomResource": "CFN::Resource::Custom::EC2-Key-Pair"
+                }
+              },
+              "Effect": "Allow",
+              "Resource": "*"
+            },
+            {
+              "Action": [
+                "secretsmanager:DeleteResourcePolicy",
+                "secretsmanager:DeleteSecret",
+                "secretsmanager:DescribeSecret",
+                "secretsmanager:GetResourcePolicy",
+                "secretsmanager:GetSecretValue",
+                "secretsmanager:ListSecretVersionIds",
+                "secretsmanager:PutResourcePolicy",
+                "secretsmanager:PutSecretValue",
+                "secretsmanager:RestoreSecret",
+                "secretsmanager:UntagResource",
+                "secretsmanager:UpdateSecret",
+                "secretsmanager:UpdateSecretVersionStage"
+              ],
+              "Condition": {
+                "StringLike": {
+                  "secretsmanager:ResourceTag/CreatedByCfnCustomResource": "CFN::Resource::Custom::EC2-Key-Pair"
+                }
+              },
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Description": "Used by Lambda CFN-Resource-Custom-EC2-Key-Pair, which is a custom CFN resource, managing EC2 Key Pairs",
+        "ManagedPolicyName": "devetry-replbot-CFN-Resource-Custom-EC2-Key-Pair",
+        "Path": "/"
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/EC2-Key-Pair-Manager-Policy/Resource"
+      }
+    },
+    "EC2KeyPairManagerRoleB243C519": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Description": "Used by Lambda CFN-Resource-Custom-EC2-Key-Pair, which is a custom CFN resource, managing EC2 Key Pairs",
+        "ManagedPolicyArns": [
+          {
+            "Ref": "EC2KeyPairManagerPolicyEBBC1576"
+          },
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+              ]
+            ]
+          }
+        ],
+        "RoleName": "devetry-replbot-CFN-Resource-Custom-EC2-Key-Pair"
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/EC2-Key-Pair-Manager-Role/Resource"
+      }
+    },
+    "EC2KeyNameManagerLambdaBE629145": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParametersafe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2S3BucketA216A7EC"
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersafe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2S3VersionKeyC59C30A0"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersafe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2S3VersionKeyC59C30A0"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            ]
+          }
+        },
+        "Role": {
+          "Fn::GetAtt": [
+            "EC2KeyPairManagerRoleB243C519",
+            "Arn"
+          ]
+        },
+        "Description": "Custom CFN resource: Manage EC2 Key Pairs",
+        "FunctionName": "devetry-replbot-CFN-Resource-Custom-EC2-Key-Pair",
+        "Handler": "index.handler",
+        "Runtime": "nodejs14.x",
+        "Timeout": 180
+      },
+      "DependsOn": [
+        "EC2KeyPairManagerRoleB243C519"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/EC2-Key-Name-Manager-Lambda/Resource",
+        "aws:asset:path": "asset.afe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2.zip",
+        "aws:asset:property": "Code"
+      }
+    },
+    "VPCB9E5F0B4": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "devetry-replbot/VPC"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/VPC/Resource"
+      }
+    },
+    "VPCasteriskSubnet1SubnetEE53BCBC": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/24",
+        "VpcId": {
+          "Ref": "VPCB9E5F0B4"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "asterisk"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "devetry-replbot/VPC/asteriskSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/VPC/asteriskSubnet1/Subnet"
+      }
+    },
+    "VPCasteriskSubnet1RouteTable23B73BA2": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "VPCB9E5F0B4"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "devetry-replbot/VPC/asteriskSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/VPC/asteriskSubnet1/RouteTable"
+      }
+    },
+    "VPCasteriskSubnet1RouteTableAssociationFD2182F2": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "VPCasteriskSubnet1RouteTable23B73BA2"
+        },
+        "SubnetId": {
+          "Ref": "VPCasteriskSubnet1SubnetEE53BCBC"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/VPC/asteriskSubnet1/RouteTableAssociation"
+      }
+    },
+    "VPCasteriskSubnet1DefaultRoute377544B7": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "VPCasteriskSubnet1RouteTable23B73BA2"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "VPCIGWB7E252D3"
+        }
+      },
+      "DependsOn": [
+        "VPCVPCGW99B986DC"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/VPC/asteriskSubnet1/DefaultRoute"
+      }
+    },
+    "VPCasteriskSubnet2Subnet7959E1B2": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.1.0/24",
+        "VpcId": {
+          "Ref": "VPCB9E5F0B4"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            1,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "asterisk"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "devetry-replbot/VPC/asteriskSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/VPC/asteriskSubnet2/Subnet"
+      }
+    },
+    "VPCasteriskSubnet2RouteTable01067F80": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "VPCB9E5F0B4"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "devetry-replbot/VPC/asteriskSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/VPC/asteriskSubnet2/RouteTable"
+      }
+    },
+    "VPCasteriskSubnet2RouteTableAssociation781F3620": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "VPCasteriskSubnet2RouteTable01067F80"
+        },
+        "SubnetId": {
+          "Ref": "VPCasteriskSubnet2Subnet7959E1B2"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/VPC/asteriskSubnet2/RouteTableAssociation"
+      }
+    },
+    "VPCasteriskSubnet2DefaultRoute9650F4DB": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "VPCasteriskSubnet2RouteTable01067F80"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "VPCIGWB7E252D3"
+        }
+      },
+      "DependsOn": [
+        "VPCVPCGW99B986DC"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/VPC/asteriskSubnet2/DefaultRoute"
+      }
+    },
+    "VPCIGWB7E252D3": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "devetry-replbot/VPC"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/VPC/IGW"
+      }
+    },
+    "VPCVPCGW99B986DC": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "VPCB9E5F0B4"
+        },
+        "InternetGatewayId": {
+          "Ref": "VPCIGWB7E252D3"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/VPC/VPCGW"
+      }
+    },
+    "SecurityGroupDD263621": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Allow SSH (TCP port 22) in",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow SSH Access",
+            "FromPort": 22,
+            "IpProtocol": "tcp",
+            "ToPort": 22
+          },
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow replbot SSH Access",
+            "FromPort": 2222,
+            "IpProtocol": "tcp",
+            "ToPort": 2222
+          }
+        ],
+        "VpcId": {
+          "Ref": "VPCB9E5F0B4"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/SecurityGroup/Resource"
+      }
+    },
+    "ec2Role38AB65C0": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "ec2.",
+                      {
+                        "Ref": "AWS::URLSuffix"
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":iam::aws:policy/AmazonSSMManagedInstanceCore"
+              ]
+            ]
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/ec2Role/Resource"
+      }
+    },
+    "ec2RoleDefaultPolicyC400AE24": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":s3:::",
+                      {
+                        "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3BucketC45E8303"
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":s3:::",
+                      {
+                        "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3BucketC45E8303"
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "ec2RoleDefaultPolicyC400AE24",
+        "Roles": [
+          {
+            "Ref": "ec2Role38AB65C0"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/ec2Role/DefaultPolicy/Resource"
+      }
+    },
+    "InstanceInstanceProfileAB5AEF02": {
+      "Type": "AWS::IAM::InstanceProfile",
+      "Properties": {
+        "Roles": [
+          {
+            "Ref": "ec2Role38AB65C0"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/Instance/InstanceProfile"
+      }
+    },
+    "InstanceC1063A87": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "IamInstanceProfile": {
+          "Ref": "InstanceInstanceProfileAB5AEF02"
+        },
+        "ImageId": {
+          "Ref": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
+        },
+        "InstanceType": "t3.micro",
+        "KeyName": {
+          "Fn::GetAtt": [
+            "KeyPairEC2KeyPaircdkkeypairA709CCF7",
+            "KeyPairName"
+          ]
+        },
+        "SecurityGroupIds": [
+          {
+            "Fn::GetAtt": [
+              "SecurityGroupDD263621",
+              "GroupId"
+            ]
+          }
+        ],
+        "SubnetId": {
+          "Ref": "VPCasteriskSubnet1SubnetEE53BCBC"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "devetry-replbot/Instance"
+          }
+        ],
+        "UserData": {
+          "Fn::Base64": {
+            "Fn::Join": [
+              "",
+              [
+                "#!/bin/bash\nmkdir -p $(dirname '/tmp/",
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "')\naws s3 cp 's3://",
+                {
+                  "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3BucketC45E8303"
+                },
+                "/",
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "' '/tmp/",
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "'\nset -e\nchmod +x '/tmp/",
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "'\n'/tmp/",
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "' --verbose -y\necho bot-token: xoxb-4284532945-2516500206999-TsFxFTPtki7tA70xtcySFsFo >> /etc/replbot/config.yml\necho share-host: $(curl -s ifconfig.me):22 >> /etc/replbot/config.yml\nsystemctl enable replbot --now\n"
+              ]
+            ]
+          }
+        }
+      },
+      "DependsOn": [
+        "ec2RoleDefaultPolicyC400AE24",
+        "ec2Role38AB65C0"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/Instance/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/1VQwW7CMAz9Fu4hjG67DyoN7TCtaifubmq6QJtUiT2Eqv77khZWOPnl+TnPz2u5Tl7k0+INzn6pqtOqV9ah7AsCdRIpe7Jtjt6yUyjSg/nHG++RgqrWphapNZ4cK4qSDBy0SOjE/eAXU8djP4grTdqaQUTTXkMr+08wUGOV2UarS1Q9ErltJvtYZ9GMPsICYBRmzh50g4NooC0rkP07GxXNouiGB+GflxADeDnmCG+5ZXVC2oJHgSqR/b5TcWafpSLjMvgUXBocE8wot0z4DeW03cTPXPjbKg03+7ExLRuuE5Q7IDzD5WpzfW0onP6nRUOiQMVO02XnLHejwQNxy3yffxgGYWyF8uhXv+tEJol8XRy91kvHhnSLMp/qH79Wfjr5AQAA"
+      },
+      "Metadata": {
+        "aws:cdk:path": "devetry-replbot/CDKMetadata/Default"
+      },
+      "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Parameters": {
+    "AssetParametersafe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2S3BucketA216A7EC": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"afe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2\""
+    },
+    "AssetParametersafe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2S3VersionKeyC59C30A0": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"afe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2\""
+    },
+    "AssetParametersafe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2ArtifactHash3CBE2F36": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"afe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2\""
+    },
+    "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3BucketC45E8303": {
+      "Type": "String",
+      "Description": "S3 bucket for asset \"27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05a\""
+    },
+    "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6": {
+      "Type": "String",
+      "Description": "S3 key for asset version \"27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05a\""
+    },
+    "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aArtifactHash0A09B12E": {
+      "Type": "String",
+      "Description": "Artifact hash for asset \"27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05a\""
+    },
+    "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter": {
+      "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
+      "Default": "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+    }
+  },
+  "Outputs": {
+    "IPAddress": {
+      "Value": {
+        "Fn::GetAtt": [
+          "InstanceC1063A87",
+          "PublicIp"
+        ]
+      }
+    },
+    "KeyName": {
+      "Value": {
+        "Fn::GetAtt": [
+          "KeyPairEC2KeyPaircdkkeypairA709CCF7",
+          "KeyPairName"
+        ]
+      }
+    },
+    "DownloadKeyCommand": {
+      "Value": "aws secretsmanager get-secret-value --secret-id ec2-ssh-key/cdk-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem"
+    },
+    "sshcommand": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "ssh -i cdk-key.pem -o IdentitiesOnly=yes ec2-user@",
+            {
+              "Fn::GetAtt": [
+                "InstanceC1063A87",
+                "PublicIp"
+              ]
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "Conditions": {
+    "CDKMetadataAvailable": {
+      "Fn::Or": [
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "af-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ca-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-northwest-1"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-3"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "me-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "sa-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-2"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
