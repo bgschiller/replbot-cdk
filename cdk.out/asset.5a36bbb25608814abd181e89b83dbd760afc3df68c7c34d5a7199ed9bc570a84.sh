@@ -37,3 +37,4 @@ sudo usermod -a -G docker ec2-user
 sudo usermod -a -G docker replbot
 newgrp docker
 sudo systemctl enable replbot
+sudo systemctl start replbot

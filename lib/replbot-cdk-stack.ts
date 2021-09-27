@@ -73,14 +73,12 @@ export class ReplbotCdkStack extends cdk.Stack {
       arguments: '--verbose -y'
     });
     ec2Instance.userData.addCommands(`echo bot-token: ${props.botToken} >> /etc/replbot/config.yml
-echo share-host: \$(curl -s ifconfig.me):22 >> /etc/replbot/config.yml
-systemctl enable replbot --now
+echo share-host: \$(curl -s ifconfig.me):2222 >> /etc/replbot/config.yml
+systemctl start replbot
 `);
     asset.grantRead(ec2Instance.role);
 
     // Create outputs for connecting
-    new cdk.CfnOutput(this, 'IP Address', { value: ec2Instance.instancePublicIp });
-    new cdk.CfnOutput(this, 'Key Name', { value: key.keyPairName })
     new cdk.CfnOutput(this, 'Download Key Command', { value: 'aws secretsmanager get-secret-value --secret-id ec2-ssh-key/cdk-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem' })
     new cdk.CfnOutput(this, 'ssh command', { value: 'ssh -i cdk-key.pem -o IdentitiesOnly=yes ec2-user@' + ec2Instance.instancePublicIp })
   }

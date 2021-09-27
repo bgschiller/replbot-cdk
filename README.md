@@ -1,19 +1,14 @@
-# EC2 Instance Creation with CDK
+# Replbot CDK
 
-This example will create:
+Stand up a replbot on AWS infrastructure.
 
-- A new VPC
-- Two public subnets
-- A security group
-- An EC2 instance in one of the subnets
+## Setup
 
-The `/src/config.sh` file is used as [user-data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) for the EC2 instance. Update this with any commands you'd like to be executed when the EC2 instance first boots.
-
-[_learn more about user-data_](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html)
+Make sure you have an environment variable set for `REPLBOT_TOKEN`. I use direnv to make sure it is set when I change into this directory. You'll also need to have aws credentials configured, as with `aws configure`.
 
 ## To Deploy
 
-Ensure aws-cdk is installed and [bootstrapped](https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html).
+First, we'll make sure aws-cdk is installed and [bootstrapped](https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html).
 
 ```bash
 $ npm run build

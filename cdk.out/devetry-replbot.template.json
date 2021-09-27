@@ -556,7 +556,7 @@
                       },
                       ":s3:::",
                       {
-                        "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3BucketC45E8303"
+                        "Ref": "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3BucketEC869241"
                       }
                     ]
                   ]
@@ -571,7 +571,7 @@
                       },
                       ":s3:::",
                       {
-                        "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3BucketC45E8303"
+                        "Ref": "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3BucketEC869241"
                       },
                       "/*"
                     ]
@@ -660,7 +660,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                          "Ref": "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3VersionKeyAB289888"
                         }
                       ]
                     }
@@ -673,7 +673,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                          "Ref": "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3VersionKeyAB289888"
                         }
                       ]
                     }
@@ -681,7 +681,7 @@
                 },
                 "')\naws s3 cp 's3://",
                 {
-                  "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3BucketC45E8303"
+                  "Ref": "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3BucketEC869241"
                 },
                 "/",
                 {
@@ -691,7 +691,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                          "Ref": "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3VersionKeyAB289888"
                         }
                       ]
                     }
@@ -704,7 +704,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                          "Ref": "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3VersionKeyAB289888"
                         }
                       ]
                     }
@@ -718,7 +718,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                          "Ref": "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3VersionKeyAB289888"
                         }
                       ]
                     }
@@ -731,7 +731,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                          "Ref": "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3VersionKeyAB289888"
                         }
                       ]
                     }
@@ -745,7 +745,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                          "Ref": "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3VersionKeyAB289888"
                         }
                       ]
                     }
@@ -758,7 +758,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                          "Ref": "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3VersionKeyAB289888"
                         }
                       ]
                     }
@@ -772,7 +772,7 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                          "Ref": "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3VersionKeyAB289888"
                         }
                       ]
                     }
@@ -785,13 +785,13 @@
                       "Fn::Split": [
                         "||",
                         {
-                          "Ref": "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6"
+                          "Ref": "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3VersionKeyAB289888"
                         }
                       ]
                     }
                   ]
                 },
-                "' --verbose -y\necho bot-token: xoxb-4284532945-2516500206999-TsFxFTPtki7tA70xtcySFsFo >> /etc/replbot/config.yml\necho share-host: $(curl -s ifconfig.me):22 >> /etc/replbot/config.yml\nsystemctl enable replbot --now\n"
+                "' --verbose -y\necho bot-token: xoxb-4284532945-2516500206999-TsFxFTPtki7tA70xtcySFsFo >> /etc/replbot/config.yml\necho share-host: $(curl -s ifconfig.me):2222 >> /etc/replbot/config.yml\nsystemctl start replbot\n"
               ]
             ]
           }
@@ -829,17 +829,17 @@
       "Type": "String",
       "Description": "Artifact hash for asset \"afe67465ec62603d27d77795221a45e68423c87495467b0265ecdadad80bb5e2\""
     },
-    "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3BucketC45E8303": {
+    "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3BucketEC869241": {
       "Type": "String",
-      "Description": "S3 bucket for asset \"27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05a\""
+      "Description": "S3 bucket for asset \"a6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84\""
     },
-    "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aS3VersionKey29A247A6": {
+    "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84S3VersionKeyAB289888": {
       "Type": "String",
-      "Description": "S3 key for asset version \"27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05a\""
+      "Description": "S3 key for asset version \"a6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84\""
     },
-    "AssetParameters27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05aArtifactHash0A09B12E": {
+    "AssetParametersa6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84ArtifactHashF36B35DB": {
       "Type": "String",
-      "Description": "Artifact hash for asset \"27f142279c6d7ac640631a7319058e0ebfc481e3fa10013355c567f5627dc05a\""
+      "Description": "Artifact hash for asset \"a6a94136559d4fab187dbc8755e279ca95e483cc73b1131d6fef259cf7fb1a84\""
     },
     "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter": {
       "Type": "AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>",
@@ -847,22 +847,6 @@
     }
   },
   "Outputs": {
-    "IPAddress": {
-      "Value": {
-        "Fn::GetAtt": [
-          "InstanceC1063A87",
-          "PublicIp"
-        ]
-      }
-    },
-    "KeyName": {
-      "Value": {
-        "Fn::GetAtt": [
-          "KeyPairEC2KeyPaircdkkeypairA709CCF7",
-          "KeyPairName"
-        ]
-      }
-    },
     "DownloadKeyCommand": {
       "Value": "aws secretsmanager get-secret-value --secret-id ec2-ssh-key/cdk-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem"
     },
