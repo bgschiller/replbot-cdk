@@ -4,7 +4,7 @@ Stand up a replbot on AWS infrastructure.
 
 ## Setup
 
-Make sure you have an environment variable set for `REPLBOT_TOKEN`. I use direnv to make sure it is set when I change into this directory. You'll also need to have aws credentials configured, as with `aws configure`.
+Make sure you have an environment variable set for `REPLBOT_TOKEN` (use the instructions at https://github.com/binwiederhier/replbot#installation to get one). I use direnv to make sure it is set when I change into this directory. You'll also need to have aws credentials configured, as with `aws configure`.
 
 ## To Deploy
 
@@ -24,8 +24,6 @@ $ npm run cdk deploy
 ## Output
 
 - `Ec2CdkStack.DownloadKeyCommand`: The command needed to download the private key that was created.
-- `Ec2CdkStack.IPAddress`: Public IP Address of Instance.
-- `Ec2CdkStack.KeyName`: Key Name that was created.
 - `Ec2CdkStack.sshcommand`: The command used to connect to the instance.
 
 ## Keys and Access
